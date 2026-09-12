@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
   const emitSourcemaps = mode === 'development'
 
   return {
-    base: process.env.FIGMA_PUBLIC_URL ? `${process.env.FIGMA_PUBLIC_URL}/` : '/',
+    base: '/my-profile/',
     build: {
       sourcemap: emitSourcemaps ? 'inline' : false,
       minify: !emitSourcemaps,
@@ -42,32 +42,32 @@ export default defineConfig(({ mode }) => {
   }
 })
 
-type FigmaSiteConfiguration = {
-  title?: string
-  description?: string
-  language?: string
-  robots?: {
-    index?: boolean
-  }
-  icons?: {
-    icon?: string
-  }
-  openGraph?: {
-    image?: string
-  }
-  analytics?: {
-    googleAnalyticsId?: string
-  }
-  customScripts?: {
-    headStart?: string
-    headEnd?: string
-    bodyStart?: string
-    bodyEnd?: string
-  }
-  accessibility?: {
-    addBypassLinks?: boolean
-  }
-}
+// type FigmaSiteConfiguration = {
+//   title?: string
+//   description?: string
+//   language?: string
+//   robots?: {
+//     index?: boolean
+//   }
+//   icons?: {
+//     icon?: string
+//   }
+//   openGraph?: {
+//     image?: string
+//   }
+//   analytics?: {
+//     googleAnalyticsId?: string
+//   }
+//   customScripts?: {
+//     headStart?: string
+//     headEnd?: string
+//     bodyStart?: string
+//     bodyEnd?: string
+//   }
+//   accessibility?: {
+//     addBypassLinks?: boolean
+//   }
+// }
 
 /** Applies /.figma/make/site.json to the generated document shell. */
 // function figmaSiteConfiguration(config: FigmaSiteConfiguration): Plugin {
