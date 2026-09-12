@@ -54,7 +54,7 @@ const ExperienceItem = ({
           >
             {job.title}
           </h3>
-          <span
+          {/* <span
             style={{
               fontSize: "12px",
               fontWeight: 700,
@@ -63,7 +63,17 @@ const ExperienceItem = ({
             }}
           >
             {job.period}
-          </span>
+          </span> */}
+        </div>
+        <div
+          style={{
+            fontSize: "13px",
+            color: "var(--fg-muted)",
+            fontWeight: 700,
+            marginBottom: "12px",
+          }}
+        >
+          {job.company}
         </div>
         <div
           style={{
@@ -71,9 +81,12 @@ const ExperienceItem = ({
             color: "var(--fg-muted)",
             fontWeight: 700,
             marginBottom: job.bullets.length ? "12px" : 0,
+            display: "flex",
+            gap: "16px",
           }}
         >
-          {job.company} · {job.location}
+          <span>📅 {job.period}</span>
+          <span>📍 {job.location}</span>
         </div>
         {job.bullets.length > 0 && (
           <ul style={{ margin: 0, paddingLeft: "18px", listStyleType: "disc" }}>

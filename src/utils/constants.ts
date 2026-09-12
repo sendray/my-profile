@@ -27,7 +27,7 @@ export const CONTACT_ITEMS = [
     href: "https://linkedin.com/in/sendrayaperumal",
     arrow: true,
   },
-  { label: "Location", value: "India", href: undefined, arrow: false },
+  // { label: "Location", value: "India", href: undefined, arrow: false },
 ];
 
 export const SKILLS = [
@@ -37,11 +37,13 @@ export const SKILLS = [
       "React.js",
       "TypeScript",
       "JavaScript",
-      "HTML5",
-      "CSS3",
       "Micro-frontend",
       "Alpine.js",
-      "Atomic Design",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Material UI",
+      "HTML5",
+      "CSS3",
     ],
   },
   {
@@ -52,30 +54,30 @@ export const SKILLS = [
       "ClientLibs",
       "CIF Components",
       "Component Development",
-      "Content Authoring",
       "Experience Fragments",
     ],
   },
   {
-    category: "Performance",
+    category: "Performance & Tools",
     items: [
-      "Core Web Vitals",
-      "Lazy Loading",
-      "Code Splitting",
+      "Vite",
+      "Webpack",
+      "Parcel",
+      "AXE", 
+      "NVDA",
       "Lighthouse Audits",
+      "Jest",
+      "React Testing Library",
+      "Core Web Vitals",
     ],
   },
   {
-    category: "Testing & Tools",
+    category: "Collaboration",
     items: [
-      "Jest",
-      "React Testing Library",
-      "AXE",
-      "NVDA",
+      "REST API",
       "GraphQL",
-      "REST APIs",
-      "Git",
-      "Husky",
+      "Agile / Scrum",
+      "JIRA"
     ],
   },
 ];
@@ -87,8 +89,8 @@ export const EXPERIENCE = [
     period: "08/2025 – Present",
     location: "Bengaluru, India",
     bullets: [
-      "Contributing to the Beam Design System to ensure enterprise UI consistency",
-      "Accessibility and performance audits aligned with WCAG standards",
+      "Senior Frontend Developer contributing to the Beam Design System to ensure enterprise UI consistency.",
+      "Worked for accessibility and performance audits with WCAG standards.",
     ],
   },
   {
@@ -97,9 +99,12 @@ export const EXPERIENCE = [
     period: "07/2023 – 05/2025",
     location: "Bengaluru, India",
     bullets: [
-      "React + AEM integration for Adobe enterprise projects",
-      "Cross-browser compatible UI with GraphQL/REST API integration",
-      "Unit testing with Jest; accessibility with AXE, Wave, NVDA",
+      "Extensive experience working with React with AEM for Adobe projects.",
+      "Expertise in designing user interfaces that are cross-browser and device compatible, guaranteeing a unified platform experience.",
+      "Proficiency utilizing Jest to create unit tests for components.",
+      "Profundity with AXE, Wave, and NVDA accessibility tools.",
+      "Integrated GraphQL/REST APIs in various projects.",
+      "Experience in using HTL, AEM sites, CIF components in AEM front-end development."
     ],
   },
   {
@@ -108,9 +113,10 @@ export const EXPERIENCE = [
     period: "11/2021 – 07/2023",
     location: "Kochi, India",
     bullets: [
-      "Built reusable component library published to private npm registry",
-      "Responsive web design with Material UI, Bootstrap, Tailwind CSS",
-      "Maintained release notes, developer guides, and peer code reviews",
+      "Built and published reusable web components using Lit to private npm registry.",
+      "Experience using third-party and customized CSS frameworks (Material UI, Bootstrap, Tailwind CSS) to create responsive web design.",
+      "Developed and kept up-to-date release notes, usage documentation, and developer guides for UI Library components.",
+      "Participates in writing technical documentation and peer code reviews."
     ],
   },
   {
@@ -119,9 +125,12 @@ export const EXPERIENCE = [
     period: "11/2015 – 11/2021",
     location: "Kochi, India",
     bullets: [
-      "React and Angular apps for clients across Middle East and Europe",
-      "Widgets for banking and insurance portfolios",
+      "Developed web applications in React and Angular projects together with clients in the Middle East and Europe.",
+      "Made widgets and specialized parts for banking and life insurance portfolios and extensively used Duet Design System with Angular.",
       "Improved Lighthouse scores and web accessibility across projects",
+      "Experience in using Node.js and Joi validations.",
+      "Experience in using Postman to perform API contract testing.",
+      "Enhanced Lighthouse Audit performance and web accessibility across several projects."
     ],
   },
   {

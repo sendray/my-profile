@@ -31,7 +31,7 @@ const Contact = () => {
         </div>
 
         {/* ─── Contact list ─── */}
-        <ContactList />
+        {/* <ContactList /> */}
       </div>
     </Section>
   );

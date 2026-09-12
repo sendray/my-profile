@@ -89,13 +89,13 @@ const Header = () => {
                 color: "#fff",
                 fontWeight: 900,
                 fontSize: "16px",
-                letterSpacing: "-1px",
+                // letterSpacing: "-1px",
               }}
             >
               SB
             </span>
           </div>
-          <span
+          {/* <span
             style={{
               fontWeight: 700,
               fontSize: "15px",
@@ -104,7 +104,7 @@ const Header = () => {
             }}
           >
             Sendrayaperumal
-          </span>
+          </span> */}
         </button>
 
         {/* Desktop nav */}
@@ -128,6 +128,12 @@ const Header = () => {
                   activeSection === link ? "var(--accent)" : "var(--fg-muted)",
                 transition: "color 0.2s",
                 fontFamily: "'Lato', sans-serif",
+              }}
+              onMouseOver={(e) => {
+                (e.target as HTMLElement).style.color = "var(--accent)";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLElement).style.color = activeSection === link ? "var(--accent)" : "var(--fg-muted)";
               }}
             >
               {link}

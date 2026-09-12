@@ -33,15 +33,15 @@ const Footer = () => {
               SB
             </span>
           </div>
-          <span
+          {/* <span
             style={{ fontWeight: 700, fontSize: "14px", color: "var(--fg)" }}
           >
             Sendrayaperumal Balathandayutham
-          </span>
+          </span> */}
         </div>
         <p style={{ fontSize: "13px", color: "var(--fg-muted)", margin: 0 }}>
-          © {new Date().getFullYear()} · Senior Frontend Developer · Built with
-          React + Vite + Tailwind
+          {new Date().getFullYear()} · Built with React + Vite + Tailwind +
+          Figma
         </p>
       </div>
     </footer>

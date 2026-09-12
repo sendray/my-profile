@@ -65,6 +65,7 @@ const EduCard = ({
           color: "var(--fg-muted)",
         }}
       >
+        <span>🖊️ 8.2</span>
         <span>📅 {year}</span>
         <span>📍 {location}</span>
       </div>

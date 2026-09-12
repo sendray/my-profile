@@ -18,7 +18,7 @@ const Education = () => {
           degree="Bachelor's Degree — Information Technology"
           school="Hindusthan Institute of Technology"
           year="2012"
-          location="India"
+          location="Coimbatore, India"
         />
       </div>
     </Section>

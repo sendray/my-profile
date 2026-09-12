@@ -8,7 +8,7 @@ const useTheme = () => {
   useEffect(() => {
     document.documentElement.setAttribute(
       "data-theme",
-      dark ? "dark" : "light",
+      dark ? "light" : "dark",
     );
   }, [dark]);
   return { dark, toggle: () => setDark((d) => !d) };

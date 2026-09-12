@@ -50,7 +50,7 @@ const About = () => {
             </strong>
             ,{" "}
             <strong style={{ color: "var(--fg)", fontWeight: 700 }}>
-              WCAG accessibility
+              Web Accessibility
             </strong>
             , and Design System architecture. I actively leverage AI tools like{" "}
             <strong style={{ color: "var(--fg)", fontWeight: 700 }}>
@@ -67,11 +67,11 @@ const About = () => {
           }}
         >
           {[
-            { label: "Location", value: "India" },
-            { label: "Role", value: "Technical Lead" },
-            { label: "Experience", value: "13+ Years" },
+            { label: "Location", value: "Bengaluru, India" },
+            { label: "Current Role", value: "Technical Lead - Software Engineer" },
+            // { label: "Experience", value: "13+ Years" },
             { label: "Availability", value: "Open to work" },
-            { label: "Email", value: "bsendrayaperumal@gmail.com" },
+            { label: "Email", value: "bsendrayaperumal(at)gmail(dot)com" },
             { label: "Phone", value: "+91 90723 09455" },
           ].map(({ label, value }) => (
             <div

@@ -24,12 +24,13 @@ const HeroBanner = () => {
           inset: 0,
           backgroundImage:
             "radial-gradient(circle at 60% 40%, color-mix(in srgb, var(--accent) 8%, transparent) 0%, transparent 60%)",
+          // backgroundColor: "#ecf1f1",
           pointerEvents: "none",
         }}
       />
 
       <div style={{ maxWidth: "720px", position: "relative" }}>
-        <p
+        {/* <p
           className="animate-fadeup delay-1"
           style={{
             fontSize: "13px",
@@ -41,7 +42,7 @@ const HeroBanner = () => {
           }}
         >
           Senior Frontend Developer
-        </p>
+        </p> */}
         <h1
           className="animate-fadeup delay-2"
           style={{
@@ -62,16 +63,16 @@ const HeroBanner = () => {
           style={{
             fontSize: "17px",
             lineHeight: 1.7,
-            color: "var(--fg-muted)",
+            color: "var(--fg)",
             margin: "0 0 36px",
             fontWeight: 300,
           }}
         >
-          AI‑driven full‑stack engineer with{" "}
+          AI‑driven frontend engineer with{" "}
           <strong style={{ color: "var(--fg)", fontWeight: 700 }}>
             13+ years
           </strong>{" "}
-          of experience in React.js, TypeScript, and AEM. Building scalable,
+          of experience in building scalable,
           accessible, and performance‑optimized web applications for global
           teams.
         </p>
@@ -110,7 +111,7 @@ const HeroBanner = () => {
           >
             Get in Touch
           </button>
-          <button
+          {/* <button
             onClick={() => scrollTo("About")}
             style={{
               padding: "13px 28px",
@@ -134,7 +135,7 @@ const HeroBanner = () => {
             }}
           >
             View Work
-          </button>
+          </button> */}
         </div>
         <div
           className="animate-fadein delay-5"
@@ -147,7 +148,7 @@ const HeroBanner = () => {
           }}
         >
           {[
-            ["13+", "Years Experience"],
+            ["13", "Years Experience"],
             ["6", "Companies"],
             ["20+", "Technologies"],
           ].map(([num, label]) => (
@@ -165,7 +166,7 @@ const HeroBanner = () => {
                 style={{
                   fontSize: "12px",
                   fontWeight: 700,
-                  color: "var(--fg-muted)",
+                  color: "var(--fg)",
                   letterSpacing: "1px",
                   textTransform: "uppercase",
                 }}
