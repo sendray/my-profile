@@ -1,5 +1,11 @@
 name: Deploy my portfolio
 
+on:
+  push:
+    branches:
+      - gh_pages
+  workflow_dispatch:
+
 permissions:
   contents: read
   pages: write
