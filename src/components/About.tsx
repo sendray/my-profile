@@ -6,9 +6,9 @@ const About = () => {
   return (
     <Section id="About" subtle>
       <SectionHeading>About Me</SectionHeading>
-      <div
+      <div className="lg:grid md: block"
         style={{
-          display: "grid",
+          // display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: "48px",
           alignItems: "center",
@@ -59,9 +59,8 @@ const About = () => {
             to accelerate development workflows.
           </p>
         </div>
-        <div
+        <div className="lg: grid, sm: mt-5 block"
           style={{
-            display: "grid",
             gridTemplateColumns: "1fr 1fr",
             gap: "16px",
           }}
@@ -76,6 +75,7 @@ const About = () => {
           ].map(({ label, value }) => (
             <div
               key={label}
+              className="md: mt-3"
               style={{
                 background: "var(--bg)",
                 border: "1px solid var(--card-border)",

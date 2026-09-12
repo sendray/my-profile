@@ -5,9 +5,8 @@ import SectionHeading from "./core/SectionHeading";
 const Contact = () => {
   return (
     <Section id="Contact" subtle>
-      <div
+      <div className="lg: grid, md: block"
         style={{
-          display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: "64px",
           alignItems: "start",
