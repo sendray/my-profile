@@ -25,12 +25,12 @@ const About = () => {
             }}
           >
             I'm a{" "}
-            <strong style={{ color: "var(--fg)", fontWeight: 700 }}>
+            <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
               AI‑driven Full‑Stack Engineer
             </strong>{" "}
             with a frontend focus and over 13 years of professional experience.
             I specialize in{" "}
-            <strong style={{ color: "var(--fg)", fontWeight: 700 }}>
+            <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
               React.js, TypeScript, and Adobe Experience Manager (AEM)
             </strong>
             , delivering enterprise-grade digital experiences for clients across
@@ -45,15 +45,15 @@ const About = () => {
             }}
           >
             I have a strong background in{" "}
-            <strong style={{ color: "var(--fg)", fontWeight: 700 }}>
+            <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
               Core Web Vitals optimization
             </strong>
             ,{" "}
-            <strong style={{ color: "var(--fg)", fontWeight: 700 }}>
+            <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
               Web Accessibility
             </strong>
             , and Design System architecture. I actively leverage AI tools like{" "}
-            <strong style={{ color: "var(--fg)", fontWeight: 700 }}>
+            <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
               GitHub Copilot and Claude
             </strong>{" "}
             to accelerate development workflows.
@@ -70,7 +70,7 @@ const About = () => {
             { label: "Current Role", value: "Technical Lead - Software Engineer" },
             // { label: "Experience", value: "13+ Years" },
             { label: "Availability", value: "Open to work" },
-            { label: "Email", value: "bsendrayaperumal(at)gmail(dot)com" },
+            { label: "Email", value: "bsendrayaperumal (at) gmail (dot) com" },
             { label: "Phone", value: "+91 90723 09455" },
           ].map(({ label, value }) => (
             <div
@@ -89,7 +89,7 @@ const About = () => {
                   fontWeight: 700,
                   letterSpacing: "1px",
                   textTransform: "uppercase",
-                  color: "var(--accent)",
+                  color: "var(--fg-muted)",
                   marginBottom: "4px",
                 }}
               >
@@ -98,8 +98,8 @@ const About = () => {
               <div
                 style={{
                   fontSize: "13px",
-                  fontWeight: 700,
-                  color: "var(--fg)",
+                  fontWeight: 400,
+                  color: "var(--accent)",
                 }}
               >
                 {value}

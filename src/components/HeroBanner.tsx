@@ -63,13 +63,13 @@ const HeroBanner = () => {
           style={{
             fontSize: "17px",
             lineHeight: 1.7,
-            color: "var(--fg)",
+            color: "var(--fg-muted)",
             margin: "0 0 36px",
             fontWeight: 300,
           }}
         >
           AI‑driven frontend engineer with{" "}
-          <strong style={{ color: "var(--fg)", fontWeight: 700 }}>
+          <strong style={{ color: "var(--accent)", fontWeight: 700 }}>
             13+ years
           </strong>{" "}
           of experience in building scalable,
@@ -150,7 +150,7 @@ const HeroBanner = () => {
           {[
             ["13", "Years Experience"],
             ["6", "Companies"],
-            ["20+", "Technologies"],
+            ["20+", "Skills"],
           ].map(([num, label]) => (
             <div key={label} style={{ textAlign: "center" }}>
               <div
@@ -166,7 +166,7 @@ const HeroBanner = () => {
                 style={{
                   fontSize: "12px",
                   fontWeight: 700,
-                  color: "var(--fg)",
+                  color: "var(--fg-muted)",
                   letterSpacing: "1px",
                   textTransform: "uppercase",
                 }}

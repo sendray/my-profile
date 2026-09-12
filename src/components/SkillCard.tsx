@@ -43,7 +43,7 @@ const SkillCard = (
               fontWeight: 700,
               border: "1px solid var(--card-border)",
               color: "var(--fg-muted)",
-              background: "var(--bg-subtle)",
+              background: "var(--bg)",
               whiteSpace: "nowrap",
             }}
           >

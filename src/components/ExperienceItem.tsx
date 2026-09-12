@@ -49,7 +49,7 @@ const ExperienceItem = ({
               margin: 0,
               fontSize: "16px",
               fontWeight: 900,
-              color: "var(--fg)",
+              color: "var(--fg-muted)",
             }}
           >
             {job.title}
@@ -68,25 +68,24 @@ const ExperienceItem = ({
         <div
           style={{
             fontSize: "13px",
-            color: "var(--fg-muted)",
+            color: "var(--accent)",
             fontWeight: 700,
             marginBottom: "12px",
           }}
         >
           {job.company}
         </div>
-        <div
+        <div className="lg: flex, md: block"
           style={{
             fontSize: "13px",
             color: "var(--fg-muted)",
             fontWeight: 700,
             marginBottom: job.bullets.length ? "12px" : 0,
-            display: "flex",
             gap: "16px",
           }}
         >
-          <span>📅 {job.period}</span>
-          <span>📍 {job.location}</span>
+          <div className="mb-1">📅 {job.period}</div>
+          <div>📍 {job.location}</div>
         </div>
         {job.bullets.length > 0 && (
           <ul style={{ margin: 0, paddingLeft: "18px", listStyleType: "disc" }}>
