@@ -1,11 +1,12 @@
 import Section from "./core/Section";
 import SectionHeading from "./core/SectionHeading";
 import EduCard from "./EduCard";
+import ResumeDownload from "./ResumeDownload";
 
 const Education = () => {
   return (
-    <Section id="Education">
-      <SectionHeading>Education</SectionHeading>
+    <Section id="Profile">
+      <SectionHeading>Profile</SectionHeading>
       <div
         style={{
           display: "grid",
@@ -20,6 +21,10 @@ const Education = () => {
           year="2012"
           location="Coimbatore, India"
         />
+      </div>
+
+      <div className="mt-12">
+        <ResumeDownload />
       </div>
     </Section>
   );

@@ -39,7 +39,7 @@ export default function App() {
       <Education />
 
       {/* ── RESUME DOWNLOAD ── */}
-      <ResumeDownload />
+      {/* <ResumeDownload /> */}
 
       {/* ── CONTACT ── */}
       <Contact />

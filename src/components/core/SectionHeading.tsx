@@ -1,7 +1,7 @@
 /* ─── Section heading ─── */
 const SectionHeading = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div style={{ marginBottom: "48px" }}>
+    <div style={{ marginBottom: "24px" }}>
       <h2
         style={{
           fontSize: "clamp(28px, 4vw, 40px)",
