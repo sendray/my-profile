@@ -1,3 +1,5 @@
+const SVGREPO_CDN_BASE_URL = "https://cdn.svgrepo.com/show";
+
 export const NAV_LINKS = [
   "Home",
   "About",
@@ -9,78 +11,168 @@ export const NAV_LINKS = [
 ];
 
 export const CONTACT_ITEMS = [
-  {
-    label: "Email",
-    value: "bsendrayaperumal@gmail.com",
-    href: "mailto:bsendrayaperumal@gmail.com",
-    arrow: true,
-  },
-  {
-    label: "Phone",
-    value: "+91 90723 09455",
-    href: "tel:+919072309455",
-    arrow: true,
-  },
+  // {
+  //   label: "Email",
+  //   value: "bsendrayaperumal@gmail.com",
+  //   href: "mailto:bsendrayaperumal@gmail.com",
+  //   logoUrl: `${SVGREPO_CDN_BASE_URL}/452213/gmail.svg`,
+  //   arrow: true,
+  // },
+  // {
+  //   label: "Phone",
+  //   value: "+91 90723 09455",
+  //   href: "tel:+919072309455",
+  //   logoUrl: `${SVGREPO_CDN_BASE_URL}/474937/phone.svg`,
+  //   arrow: true,
+  // },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/sendrayaperumal",
-    href: "https://linkedin.com/in/sendrayaperumal",
-    arrow: true,
+    href: "https://www.linkedin.com/in/sendrayaperumal-balathandayutham-2b108282/",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/475661/linkedin-color.svg`,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/sendray",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/475654/github-color.svg`,
   },
   // { label: "Location", value: "India", href: undefined, arrow: false },
 ];
 
 export const SKILLS = [
   {
-    category: "Frontend",
-    items: [
-      "React.js",
-      "TypeScript",
-      "JavaScript",
-      "Micro-frontend",
-      "Alpine.js",
-      "Tailwind CSS",
-      "Bootstrap",
-      "Material UI",
-      "HTML5",
-      "CSS3",
-    ],
+    skill: "React",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/493719/react-javascript-js-framework-facebook.svg`,
   },
   {
-    category: "AEM",
-    items: [
-      "HTL",
-      "AEM Sites",
-      "ClientLibs",
-      "CIF Components",
-      "Component Development",
-      "Experience Fragments",
-    ],
+    skill: "JavaScript",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/349419/javascript.svg`,
   },
   {
-    category: "Performance & Tools",
-    items: [
-      "Vite",
-      "Webpack",
-      "Parcel",
-      "AXE", 
-      "NVDA",
-      "Lighthouse Audits",
-      "Jest",
-      "React Testing Library",
-      "Core Web Vitals",
-    ],
+    skill: "TypeScript",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/349540/typescript.svg`,
   },
   {
-    category: "Collaboration",
-    items: [
-      "REST API",
-      "GraphQL",
-      "Agile / Scrum",
-      "JIRA"
-    ],
+    skill: "Tailwind",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/374118/tailwind.svg`,
+  },
+  {
+    skill: "Material UI",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/354048/material-ui.svg`,
+  },
+  {
+    skill: "Bootstrap",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/353498/bootstrap.svg`,
+  },
+  {
+    skill: "HTML5",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/349402/html5.svg`,
+  },
+  {
+    skill: "CSS3",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/452185/css-3.svg`,
+  },
+  {
+    skill: "Vite",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/374167/vite.svg`,
+  },
+  {
+    skill: "Parcel",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/354161/parcel-icon.svg`,
+  },
+  {
+    skill: "Webpack",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/354552/webpack.svg`,
+  },
+  {
+    skill: "AXE",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/331301/axe.svg`,
+  },
+  {
+    skill: "NVDA",
+    logoUrl:
+      "https://s.yimg.com/zb/imgv1/20b3e978-d47d-3f6c-8b9e-7cac2b928c3a/t_500x300",
+  },
+  {
+    skill: "GraphQL",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/373644/graphql.svg`,
+  },
+  {
+    skill: "Postman",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/354202/postman-icon.svg`,
+  },
+  {
+    skill: "Jira",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/353935/jira.svg`,
+  },
+  {
+    skill: "Git",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/452210/git.svg`,
+  },
+  {
+    skill: "Jest",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/353930/jest.svg`,
+  },
+  {
+    skill: "Lighthouse",
+    logoUrl: `${SVGREPO_CDN_BASE_URL}/353997/lighthouse.svg`,
+  },
+  {
+    skill: "RTL",
+    logoUrl: "https://testing-library.com/img/octopus-64x64.png",
   },
 ];
+
+// export const SKILLS = [
+//   {
+//     category: "Frontend",
+//     items: [
+//       "React.js",
+//       "TypeScript",
+//       "JavaScript",
+//       "Micro-frontend",
+//       "Alpine.js",
+//       "Tailwind CSS",
+//       "Bootstrap",
+//       "Material UI",
+//       "HTML5",
+//       "CSS3",
+//     ],
+//   },
+//   {
+//     category: "AEM",
+//     items: [
+//       "HTL",
+//       "AEM Sites",
+//       "ClientLibs",
+//       "CIF Components",
+//       "Component Development",
+//       "Experience Fragments",
+//     ],
+//   },
+//   {
+//     category: "Performance & Tools",
+//     items: [
+//       "Vite",
+//       "Webpack",
+//       "Parcel",
+//       "AXE",
+//       "NVDA",
+//       "Lighthouse Audits",
+//       "Jest",
+//       "React Testing Library",
+//       "Core Web Vitals",
+//     ],
+//   },
+//   {
+//     category: "Collaboration",
+//     items: [
+//       "REST API",
+//       "GraphQL",
+//       "Agile / Scrum",
+//       "JIRA"
+//     ],
+//   },
+// ];
 
 export const EXPERIENCE = [
   {
@@ -104,7 +196,7 @@ export const EXPERIENCE = [
       "Proficiency utilizing Jest to create unit tests for components.",
       "Profundity with AXE, Wave, and NVDA accessibility tools.",
       "Integrated GraphQL/REST APIs in various projects.",
-      "Experience in using HTL, AEM sites, CIF components in AEM front-end development."
+      "Experience in using HTL, AEM sites, CIF components in AEM front-end development.",
     ],
   },
   {
@@ -116,7 +208,7 @@ export const EXPERIENCE = [
       "Built and published reusable web components using Lit to private npm registry.",
       "Experience using third-party and customized CSS frameworks (Material UI, Bootstrap, Tailwind CSS) to create responsive web design.",
       "Developed and kept up-to-date release notes, usage documentation, and developer guides for UI Library components.",
-      "Participates in writing technical documentation and peer code reviews."
+      "Participates in writing technical documentation and peer code reviews.",
     ],
   },
   {
@@ -130,7 +222,7 @@ export const EXPERIENCE = [
       "Improved Lighthouse scores and web accessibility across projects",
       "Experience in using Node.js and Joi validations.",
       "Experience in using Postman to perform API contract testing.",
-      "Enhanced Lighthouse Audit performance and web accessibility across several projects."
+      "Enhanced Lighthouse Audit performance and web accessibility across several projects.",
     ],
   },
   {

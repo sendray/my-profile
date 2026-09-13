@@ -15,6 +15,7 @@ const Section = ({
   return (
     <section
       id={id}
+      className="min-h-screen"
       style={{
         padding: "88px 24px",
         background: subtle ? "var(--bg-subtle)" : "var(--bg)",

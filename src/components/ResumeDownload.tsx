@@ -55,7 +55,7 @@ const ResumeDownload = () => {
               fontSize: "16px",
               color: "var(--fg-muted)",
               margin: 0,
-              fontWeight: 300,
+              // fontWeight: 300,
             }}
           >
             Get a full overview of my experience, skills, and education in one

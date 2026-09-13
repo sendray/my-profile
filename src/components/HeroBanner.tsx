@@ -65,7 +65,7 @@ const HeroBanner = () => {
             lineHeight: 1.7,
             color: "var(--fg-muted)",
             margin: "0 0 36px",
-            fontWeight: 300,
+            // fontWeight: 300,
           }}
         >
           AI‑driven frontend engineer with{" "}

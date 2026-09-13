@@ -1,3 +1,4 @@
+import { CONTACT_ITEMS } from "@/utils/constants";
 import ContactList from "./ContactList";
 import Section from "./core/Section";
 import SectionHeading from "./core/SectionHeading";
@@ -5,7 +6,8 @@ import SectionHeading from "./core/SectionHeading";
 const Contact = () => {
   return (
     <Section id="Contact" subtle>
-      <div className="lg: grid, md: block"
+      <div
+        className="lg: grid, md: block"
         style={{
           gridTemplateColumns: "1fr 1fr",
           gap: "64px",
@@ -19,7 +21,7 @@ const Contact = () => {
               fontSize: "16px",
               lineHeight: 1.9,
               color: "var(--fg-muted)",
-              fontWeight: 300,
+              // fontWeight: 300,
               margin: 0,
             }}
           >
@@ -31,6 +33,18 @@ const Contact = () => {
 
         {/* ─── Contact list ─── */}
         {/* <ContactList /> */}
+        <div
+          style={{
+            display: "flex",
+            marginTop: "24px"
+          }}
+        >
+          {/* <ContactList contactLogoUrl="asadsa" /> */}
+          {CONTACT_ITEMS.map((group) => (
+            /* ─── Skill card ─── */
+            <ContactList key={group.label} group={group} />
+          ))}
+        </div>
       </div>
     </Section>
   );

@@ -97,7 +97,7 @@ const ExperienceItem = ({
                   color: "var(--fg-muted)",
                   marginBottom: "4px",
                   lineHeight: 1.6,
-                  fontWeight: 300,
+                  // fontWeight: 300,
                 }}
               >
                 {b}
