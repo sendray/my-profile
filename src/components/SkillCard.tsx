@@ -3,7 +3,7 @@ import useReveal from "@/hooks/useReveal";
 const SkillCard = ({
   group,
 }: {
-  group: { skill: string; logoUrl: string };
+  group: { skill: string, logoUrl: string };
 }) => {
   const ref = useReveal();
 

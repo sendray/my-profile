@@ -68,7 +68,7 @@ const HeroBanner = () => {
             // fontWeight: 300,
           }}
         >
-          AI‑driven frontend engineer with{" "}
+          AI‑driven Frontend Engineer with{" "}
           <strong style={{ color: "var(--accent)", fontWeight: 700 }}>
             13+ years
           </strong>{" "}

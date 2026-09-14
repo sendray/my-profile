@@ -19,6 +19,6 @@ const useReveal = () => {
     return () => obs.disconnect();
   }, []);
   return ref;
-}
+};
 
 export default useReveal;
