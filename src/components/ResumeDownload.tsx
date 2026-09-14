@@ -63,7 +63,7 @@ const ResumeDownload = () => {
         </p>
       </div>
       <a
-        href="./resume.pdf"
+        href="/my-profile/resume.pdf"
         download="Sendrayaperumal_Balathandayutham_Resume.pdf"
         style={{
           display: "inline-flex",
