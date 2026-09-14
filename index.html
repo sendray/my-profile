@@ -1,16 +1,36 @@
 <!doctype html>
-<html lang="<!-- figma:lang -->">
+<html lang="en">
   <head>
-    <!-- figma:head-start -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><!-- figma:title --></title>
-    <!-- figma:head-end -->
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+
+    <title>Profile - Sendrayaperumal Balathandayutham</title>
+    <style>
+      @media (max-width: 768px) {
+        .hidden-mobile {
+          display: none !important;
+        }
+        .mobile-only {
+          display: flex !important;
+        }
+        .skills {
+          display: flex !important;
+          flex-wrap: wrap;
+        }
+      }
+      @media (min-width: 769px) {
+        .hidden-mobile {
+          display: flex !important;
+        }
+        .mobile-only {
+          display: none !important;
+        }
+      }
+    </style>
   </head>
   <body>
-    <!-- figma:body-start -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-    <!-- figma:body-end -->
   </body>
 </html>

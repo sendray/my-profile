@@ -1,13 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap');
 @import 'tailwindcss';
 
+/* --bg: #ecf1f1; */
+  /* --accent: #11898a;
+  --accent-hover: #16989a; */
+
 :root {
-  --bg: #ffffff;
+  /* --bg: #ffffff; */
+  --bg: #ecf1f1;
   --bg-subtle: #f4f5f7;
   --fg: #111827;
+  /* --fg-muted: #fff; */
   --fg-muted: #6b7280;
-  --accent: #2563eb;
-  --accent-hover: #1d4ed8;
+  /* --accent: #2563eb;
+  --accent-hover: #1d4ed8; */
+  --accent: #11898a;
+  --accent-hover: #16989a;
   --border: #e5e7eb;
   --card: #ffffff;
   --card-border: #e5e7eb;
@@ -18,9 +26,12 @@
   --bg: #0f1117;
   --bg-subtle: #1a1d27;
   --fg: #f1f5f9;
+  /* --fg-muted: #fff; */
   --fg-muted: #94a3b8;
-  --accent: #3b82f6;
-  --accent-hover: #60a5fa;
+  /* --accent: #3b82f6;
+  --accent-hover: #60a5fa; */
+  --accent: #11898a;
+  --accent-hover: #16989a;
   --border: #1e2535;
   --card: #161b27;
   --card-border: #1e2535;
