@@ -51,6 +51,12 @@ const SkillCard = ({
             className="object-cover w-12"
             alt="skills-logo"
             src={group.logoUrl}
+            // style={{
+            //   padding: "6px",
+            //   border: "1px solid var(--card-border)",
+            //   borderRadius: "4px",
+            //   background: "var(--card)"
+            // }}
           />
           <div
             style={{
