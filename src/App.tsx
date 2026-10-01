@@ -1,13 +1,13 @@
 import Skills from "./components/Skills";
-import About from "./components/about";
-import Hero from "./components/hero";
-import Experience from "./components/experience";
+import About from "./components/About";
+import Hero from "./components/Hero";
+import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Learning from "./components/Learning";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import SkillTicker from "./components/SkillTicker";
+// import SkillTicker from "./components/SkillTicker";
 
 export default function App() {
   return (
