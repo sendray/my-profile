@@ -1,32 +1,154 @@
-import Section from "./core/Section";
-import SectionHeading from "./core/SectionHeading";
-import EduCard from "./EduCard";
-import ResumeDownload from "./ResumeDownload";
+import { useRef, useEffect } from "react";
+import Eyebrow from "./core/Eyebrow";
 
 const Education = () => {
-  return (
-    <Section id="Profile">
-      <SectionHeading>Profile</SectionHeading>
-      <div
+  function Chip({ children }: { children: React.ReactNode }) {
+    return (
+      <span
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "20px",
+          padding: "5px 12px",
+          borderRadius: 6,
+          border: "1px solid var(--border)",
+          background: "var(--bg-subtle)",
+          fontSize: 13,
+          color: "var(--fg-muted)",
+          fontWeight: 500,
+          fontFamily: "var(--font-mono)",
         }}
       >
-        {/* ─── Education card ─── */}
-        <EduCard
-          degree="Bachelor's Degree — Information Technology"
-          school="Hindusthan Institute of Technology"
-          year="2012"
-          location="Coimbatore, India"
-        />
-      </div>
+        {children}
+      </span>
+    );
+  }
 
-      <div className="mt-12">
-        <ResumeDownload />
+  function useReveal(cls = "reveal") {
+    const ref = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+      const el = ref.current;
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([e]) => {
+          if (e.isIntersecting) {
+            el.classList.add("visible");
+            obs.disconnect();
+          }
+        },
+        { threshold: 0.1 },
+      );
+      obs.observe(el);
+      return () => obs.disconnect();
+    }, [cls]);
+    return ref;
+  }
+
+  function RevealBlock({
+    children,
+    cls = "reveal",
+  }: {
+    children: React.ReactNode;
+    cls?: string;
+  }) {
+    const ref = useReveal(cls);
+    return (
+      <div ref={ref} className={cls}>
+        {children}
       </div>
-    </Section>
+    );
+  }
+
+  return (
+    <section
+      id="Education"
+      aria-label="Education"
+      style={{ padding: "96px 24px" }}
+    >
+      <div style={{ maxWidth: 1140, margin: "0 auto" }}>
+        <RevealBlock>
+          <Eyebrow>Foundation</Eyebrow>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(28px,4vw,44px)",
+              fontWeight: 700,
+              letterSpacing: -1,
+              marginBottom: 48,
+            }}
+          >
+            Education
+          </h2>
+        </RevealBlock>
+        <RevealBlock>
+          <div
+            className="glass"
+            style={{
+              borderRadius: 16,
+              padding: "36px 40px",
+              display: "flex",
+              gap: 32,
+              alignItems: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <div
+              style={{
+                width: 64,
+                height: 64,
+                borderRadius: 16,
+                background: "var(--accent)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
+              <span style={{ fontSize: 28 }}>🎓</span>
+            </div>
+            <div style={{ flex: 1, minWidth: 200 }}>
+              <div
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: 11,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  color: "var(--accent)",
+                  marginBottom: 2,
+                }}
+              >
+                Bachelor's Degree
+              </div>
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: 22,
+                  fontWeight: 700,
+                  color: "var(--fg)",
+                }}
+              >
+                Information Technology
+              </h3>
+              <div
+                style={{
+                  fontSize: 15,
+                  fontWeight: 600,
+                  color: "var(--fg-muted)",
+                  marginBottom: "14px",
+                }}
+              >
+                Hindusthan Institute of Technology
+              </div>
+              <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+                <Chip>🖊️ CGPA: 8.2</Chip>
+                <Chip>📅 2012</Chip>
+                <Chip>📍 Coimbatore, India</Chip>
+              </div>
+            </div>
+            {/* <div style={{ display: "flex", gap: 20, flexWrap: "wrap" }}>
+              
+            </div> */}
+          </div>
+        </RevealBlock>
+      </div>
+    </section>
   );
 };
 

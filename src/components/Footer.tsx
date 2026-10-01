@@ -1,47 +1,68 @@
 const Footer = () => {
   return (
     <footer
+      role="contentinfo"
       style={{
-        background: "var(--bg-subtle)",
-        borderTop: "1px solid var(--border)",
-        padding: "32px 24px",
-        textAlign: "center",
+        background: "var(--bg)",
+        borderTop: "1px solid var(--border-subtle)",
+        padding: "28px 24px",
       }}
     >
-      <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "10px",
-            marginBottom: "12px",
-          }}
-        >
+      <div
+        style={{
+          maxWidth: 1140,
+          margin: "0 auto",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: 12,
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div
             style={{
-              width: "30px",
-              height: "30px",
-              borderRadius: "6px",
+              width: 28,
+              height: 28,
+              borderRadius: 7,
               background: "var(--accent)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <span style={{ color: "#fff", fontWeight: 900, fontSize: "13px" }}>
+            <span
+              style={{
+                fontFamily: "var(--font-display)",
+                fontWeight: 900,
+                color: "#fff",
+                fontSize: 12,
+                fontStyle: "italic",
+              }}
+            >
               SB
             </span>
           </div>
           {/* <span
-            style={{ fontWeight: 700, fontSize: "14px", color: "var(--fg)" }}
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: 13,
+              fontWeight: 700,
+              color: "var(--fg)",
+            }}
           >
             Sendrayaperumal Balathandayutham
           </span> */}
         </div>
-        <p style={{ fontSize: "13px", color: "var(--fg-muted)", margin: 0 }}>
-          {new Date().getFullYear()} · Built with React + Vite + Tailwind +
-          Figma
+        <p
+          style={{
+            fontSize: 12,
+            color: "var(--fg-muted)",
+            margin: 0,
+            fontFamily: "var(--font-mono)",
+          }}
+        >
+          © {new Date().getFullYear()} · React + Vite + Tailwind CSS
         </p>
       </div>
     </footer>

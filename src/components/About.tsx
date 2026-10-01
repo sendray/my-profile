@@ -1,113 +1,174 @@
-import Section from "./core/Section";
-import SectionHeading from "./core/SectionHeading";
+import { useEffect, useRef } from "react";
+
+import Eyebrow from "./core/Eyebrow";
 
 const About = () => {
+  function useReveal(cls = "reveal") {
+    const ref = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+      const el = ref.current;
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([e]) => {
+          if (e.isIntersecting) {
+            el.classList.add("visible");
+            obs.disconnect();
+          }
+        },
+        { threshold: 0.1 },
+      );
+      obs.observe(el);
+      return () => obs.disconnect();
+    }, [cls]);
+    return ref;
+  }
+
+  function RevealBlock({
+    children,
+    cls = "reveal",
+  }: {
+    children: React.ReactNode;
+    cls?: string;
+  }) {
+    const ref = useReveal(cls);
+    return (
+      <div ref={ref} className={cls}>
+        {children}
+      </div>
+    );
+  }
+
   return (
-    <Section id="About" subtle>
-      <SectionHeading>About Me</SectionHeading>
-      <div className="lg:grid md: block"
+    <section id="About" aria-label="About me" style={{ padding: "96px 24px" }}>
+      <div
         style={{
-          // display: "grid",
+          maxWidth: 1140,
+          margin: "0 auto",
+          display: "grid",
           gridTemplateColumns: "1fr 1fr",
-          gap: "48px",
+          gap: "64px 80px",
           alignItems: "center",
         }}
       >
         <div>
-          <p
-            style={{
-              fontSize: "16px",
-              lineHeight: 1.8,
-              color: "var(--fg-muted)",
-              marginBottom: "16px",
-              // fontWeight: 300,
-            }}
-          >
-            I'm an{" "}
-            <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
-              AI‑driven Full‑Stack Engineer
-            </strong>{" "}
-            with a frontend focus and over 13 years of professional experience.
-            I specialize in{" "}
-            <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
-              React.js, TypeScript, and Adobe Experience Manager (AEM)
-            </strong>
-            , delivering enterprise-grade digital experiences for clients across
-            Europe, the US, Australia, and the Middle East.
-          </p>
-          <p
-            style={{
-              fontSize: "16px",
-              lineHeight: 1.8,
-              color: "var(--fg-muted)",
-              // fontWeight: 300,
-            }}
-          >
-            I have a strong background in{" "}
-            <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
-              core web vitals optimization
-            </strong>
-            ,{" "}
-            <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
-              web accessibility
-            </strong>
-            , and <strong style={{ color: "var(--accent)", fontWeight: 400 }}>Design System</strong> architecture. I actively leverage AI tools like{" "}
-            <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
-              GitHub Copilot and Claude
-            </strong>{" "}
-            to accelerate development workflows.
-          </p>
-        </div>
-        <div className="lg: grid, sm: mt-5 block"
-          style={{
-            gridTemplateColumns: "1fr 1fr",
-            gap: "16px",
-          }}
-        >
-          {[
-            { label: "📍", value: "Bengaluru, India" },
-            { label: "🪪", value: "Technical Lead - Software Engineer" },
-            // { label: "Experience", value: "13+ Years" },
-            { label: "🌐", value: "Open to work" },
-            { label: "📩", value: "bsendrayaperumal (at) gmail (dot) com" },
-            { label: "📞", value: "+91 90723 09455" },
-          ].map(({ label, value }) => (
-            <div
-              key={label}
-              className="md: mt-3"
+          <RevealBlock cls="reveal-left">
+            <Eyebrow>About</Eyebrow>
+            <h2
               style={{
-                background: "var(--bg)",
-                border: "1px solid var(--card-border)",
-                borderRadius: "10px",
-                padding: "14px 16px",
+                fontFamily: "var(--font-display)",
+                fontSize: "clamp(30px,4vw,48px)",
+                fontWeight: 700,
+                lineHeight: 1.15,
+                letterSpacing: -1,
+                marginBottom: 20,
               }}
             >
-              {/* <div
-                style={{
-                  fontSize: "11px",
-                  fontWeight: 700,
-                  letterSpacing: "1px",
-                  textTransform: "uppercase",
-                  color: "var(--fg-muted)",
-                  marginBottom: "4px",
-                }}
-              >
-                {label}
-              </div> */}
-              <div
-                style={{
-                  fontSize: "13px",
-                  fontWeight: 400,
-                  color: "var(--accent)",
-                }}
-              >
-                <span className="mr-3">{label}</span> <span>{value}</span>
-              </div>
-            </div>
-          ))}
+              I build the web that{" "}
+              <span style={{ fontStyle: "italic", color: "var(--accent)" }}>
+                others dream
+              </span>{" "}
+              of
+            </h2>
+            <p
+              style={{
+                fontSize: 16,
+                lineHeight: 1.8,
+                color: "var(--fg-muted)",
+                marginBottom: 16,
+                fontWeight: 300,
+              }}
+            >
+              I'm an{" "}
+              <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
+                AI-driven Full-Stack Engineer
+              </strong>{" "}
+              with a frontend focus and over 13 years of professional
+              experience. I specialize in{" "}
+              <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
+                React.js, TypeScript, and Design System
+              </strong>{" "}
+              architecture, delivering enterprise-grade digital experiences for
+              clients across Europe, the US, Australia, and the Middle East. I
+              have a strong background in{" "}
+              <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
+                Core Web Vitals Optimization, Web Accessibility,{" "}
+              </strong>
+              and{" "}
+              <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
+                Performance Optimization
+              </strong>
+              .
+            </p>
+            <p
+              style={{
+                fontSize: 16,
+                lineHeight: 1.8,
+                color: "var(--fg-muted)",
+                fontWeight: 300,
+              }}
+            >
+              I actively leverage AI tools like{" "}
+              <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
+                GitHub Copilot
+              </strong>{" "}
+              and{" "}
+              <strong style={{ color: "var(--accent)", fontWeight: 400 }}>
+                Claude
+              </strong>{" "}
+              to accelerate development workflows.
+            </p>
+          </RevealBlock>
         </div>
+
+        <RevealBlock>
+          <div
+            style={{
+              display: "grid",
+              // gridTemplateColumns: "1fr 1fr",
+              background: "var(--bg-dim)",
+              gap: 12,
+            }}
+          >
+            {[
+              { label: "📍", value: "India" },
+              { label: "🪪", value: "Technical Lead - Software Engineer" },
+              // { label: "Experience", value: "13+ Years" },
+              { label: "🌐", value: "Open to work" },
+              { label: "📩", value: "bsendrayaperumal(at)gmail(dot)com" },
+              { label: "📞", value: "+91 90723 09455" },
+            ].map(({ label, value }) => (
+              <div
+                key={label}
+                className="glass flex align-center gap-2"
+                style={{ borderRadius: 12, padding: "16px 18px" }}
+              >
+                {/* <div
+                  style={{
+                    fontFamily: "var(--font-mono)",
+                    fontSize: 16,
+                    letterSpacing: 2,
+                    textTransform: "uppercase",
+                    color: "var(--accent)",
+                    marginBottom: 5,
+                  }}
+                >
+                  {label}
+                </div> */}
+                <div
+                  style={{
+                    fontSize: 14,
+                    color: "var(--accent)",
+                    wordBreak: "break-all",
+                  }}
+                >
+                  <span className="pr-3">{label}</span> <span>{value}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </RevealBlock>
       </div>
-    </Section>
+    </section>
   );
 };
 

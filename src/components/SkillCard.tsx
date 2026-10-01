@@ -1,74 +1,83 @@
-import useReveal from "@/hooks/useReveal";
+import { useRef, useEffect } from "react";
+import { SKILLS } from "./utils/constants";
 
 const SkillCard = ({
   group,
+  delay,
 }: {
-  group: { skill: string, logoUrl: string };
+  group: (typeof SKILLS)[0];
+  delay: number;
 }) => {
-  const ref = useReveal();
+  function useReveal(cls = "reveal") {
+    const ref = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+      const el = ref.current;
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([e]) => {
+          if (e.isIntersecting) {
+            el.classList.add("visible");
+            obs.disconnect();
+          }
+        },
+        { threshold: 0.1 },
+      );
+      obs.observe(el);
+      return () => obs.disconnect();
+    }, [cls]);
+    return ref;
+  }
 
+  const ref = useReveal();
   return (
-    <div ref={ref} className="reveal">
-      {/* <div
-        style={{
-          fontSize: "12px",
-          fontWeight: 700,
-          letterSpacing: "1.5px",
-          textTransform: "uppercase",
-          color: "var(--accent)",
-          marginBottom: "14px",
-        }}
-      >
-        {group.category}
-      </div> */}
+    <div
+      ref={ref}
+      className="reveal glass"
+      style={{
+        borderRadius: 14,
+        padding: "24px 22px",
+        transition: "all 0.3s",
+        animationDelay: `${delay}s`,
+      }}
+      onMouseEnter={(e) => {
+        (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "var(--shadow)";
+      }}
+      onMouseLeave={(e) => {
+        (e.currentTarget as HTMLElement).style.transform = "none";
+        (e.currentTarget as HTMLElement).style.boxShadow = "none";
+      }}
+    >
       <div
         style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "7px",
-          justifyContent: "center",
+          fontFamily: "var(--font-mono)",
+          fontSize: 11,
+          letterSpacing: 2,
+          textTransform: "uppercase",
+          color: "var(--accent)",
+          marginBottom: 14,
+          fontWeight: 500,
         }}
       >
-        <span
-          key={group.skill}
-          style={{
-            // padding: "4px 10px",
-            // borderRadius: "5px",
-            fontSize: "12px",
-            // fontWeight: 700,
-            // border: "1px solid var(--card-border)",
-            color: "var(--fg-muted)",
-            // background: "var(--bg)",
-            whiteSpace: "nowrap",
-            // width: "60px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img
-            className="object-cover w-12"
-            alt="skills-logo"
-            src={group.logoUrl}
-            // style={{
-            //   padding: "6px",
-            //   border: "1px solid var(--card-border)",
-            //   borderRadius: "4px",
-            //   background: "var(--card)"
-            // }}
-          />
-          <div
+        {group.cat}
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 7 }}>
+        {group.items.map((item) => (
+          <span
+            key={item}
             style={{
-              fontSize: "12px",
-              color: "var(--fg-muted)",
-              margin: "6px 0",
-              fontWeight: 700,
+              padding: "4px 10px",
+              borderRadius: 5,
+              background: "var(--accent-dim)",
+              color: "var(--fg)",
+              fontSize: 12.5,
+              fontWeight: 500,
+              border: "1px solid var(--border)",
             }}
           >
-            {group.skill}
-          </div>
-        </span>
+            {item}
+          </span>
+        ))}
       </div>
     </div>
   );

@@ -1,10 +1,9 @@
 import { useRef, useEffect } from "react";
-
 import Eyebrow from "./core/Eyebrow";
-import { SKILLS } from "./utils/constants";
-import SkillCard from "./SkillCard";
+import { LEARNING } from "./utils/constants";
+import LearningCard from "./LearningCard";
 
-const Skills = () => {
+const Learning = () => {
   function useReveal(cls = "reveal") {
     const ref = useRef<HTMLDivElement>(null);
     useEffect(() => {
@@ -42,34 +41,44 @@ const Skills = () => {
 
   return (
     <section
-      id="Skills"
-      aria-label="Skills"
+      id="Learning"
+      aria-label="Learning"
       style={{ padding: "96px 24px", background: "var(--bg-subtle)" }}
     >
       <div style={{ maxWidth: 1140, margin: "0 auto" }}>
         <RevealBlock>
-          <Eyebrow>Expertise</Eyebrow>
+          <Eyebrow>Growth</Eyebrow>
           <h2
             style={{
               fontFamily: "var(--font-display)",
               fontSize: "clamp(28px,4vw,44px)",
               fontWeight: 700,
               letterSpacing: -1,
-              marginBottom: 48,
+              marginBottom: 12,
             }}
           >
-            Skills & Technologies
+            Learning
           </h2>
+          <p
+            style={{
+              fontSize: 16,
+              color: "var(--fg-muted)",
+              fontWeight: 300,
+              marginBottom: 52,
+            }}
+          >
+            Investing in deep, structured learning through the Namaste series.
+          </p>
         </RevealBlock>
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))",
-            gap: 20,
+            gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+            gap: 24,
           }}
         >
-          {SKILLS.map((group, gi) => (
-            <SkillCard key={group.cat} group={group} delay={gi * 0.1} />
+          {LEARNING.map((course, i) => (
+            <LearningCard key={i} course={course} delay={i * 0.12} />
           ))}
         </div>
       </div>
@@ -77,4 +86,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default Learning;

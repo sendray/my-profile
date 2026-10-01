@@ -1,10 +1,30 @@
-import useReveal from "@/hooks/useReveal";
+import { useRef, useEffect } from "react";
 
 const ContactList = ({
   group,
 }: {
-  group: { label: string; logoUrl: string, href: string };
+  group: { label: string; logoUrl: string; href: string };
 }) => {
+  function useReveal(cls = "reveal") {
+    const ref = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+      const el = ref.current;
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([e]) => {
+          if (e.isIntersecting) {
+            el.classList.add("visible");
+            obs.disconnect();
+          }
+        },
+        { threshold: 0.1 },
+      );
+      obs.observe(el);
+      return () => obs.disconnect();
+    }, [cls]);
+    return ref;
+  }
+
   const ref = useReveal();
   return (
     <a href={group.href} target="_blank">
@@ -12,7 +32,7 @@ const ContactList = ({
         ref={ref}
         className="reveal"
         style={{
-          padding: "8px",
+          // padding: "8px",
         }}
       >
         <div style={{ display: "flex", flexWrap: "wrap", gap: "7px" }}>

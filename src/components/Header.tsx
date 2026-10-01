@@ -1,61 +1,80 @@
-import useTheme from "@/hooks/useTheme";
+import { useEffect, useState } from "react";
 
-import { NAV_LINKS } from "@/utils/constants";
-import { useState, useEffect } from "react";
+import { NAV } from "./utils/constants";
+import ThemeToggle from "./core/ThemeToggle";
+import scrollTo from "./utils/scrollTo";
 
 const Header = () => {
   const { dark, toggle } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("Home");
+  const active = useActiveSection();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const fn = () => setScrolled(window.scrollY > 48);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
   }, []);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActiveSection(e.target.id);
-        });
-      },
-      { threshold: 0.4 },
+  function useTheme() {
+    const [dark, setDark] = useState(
+      () =>
+        typeof window !== "undefined" &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches,
     );
-    NAV_LINKS.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+    useEffect(() => {
+      document.documentElement.setAttribute(
+        "data-theme",
+        dark ? "light" : "dark",
+      );
+    }, [dark]);
+    return { dark, toggle: () => setDark((d) => !d) };
+  }
 
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setMenuOpen(false);
-  };
+  function useActiveSection() {
+    const [active, setActive] = useState("Home");
+    useEffect(() => {
+      const update = () => {
+        const mid = window.scrollY + window.innerHeight * 0.35;
+        let nearest = NAV[0],
+          minD = Infinity;
+        NAV.forEach((id) => {
+          const el = document.getElementById(id);
+          if (!el) return;
+          const d = Math.abs(el.offsetTop - mid);
+          if (d < minD) {
+            minD = d;
+            nearest = id;
+          }
+        });
+        setActive(nearest);
+      };
+      window.addEventListener("scroll", update, { passive: true });
+      update();
+      return () => window.removeEventListener("scroll", update);
+    }, []);
+    return active;
+  }
 
   return (
     <header
+      role="banner"
       style={{
         position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
+        inset: "0 0 auto 0",
+        zIndex: 200,
         background: scrolled ? "var(--nav-bg)" : "transparent",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--border)" : "none",
-        transition: "background 0.3s, border 0.3s",
+        backdropFilter: scrolled ? "blur(16px)" : "none",
+        borderBottom: scrolled ? "1px solid var(--border-subtle)" : "none",
+        transition: "all 0.3s ease",
       }}
     >
       <div
         style={{
-          maxWidth: "1100px",
+          maxWidth: 1140,
           margin: "0 auto",
           padding: "0 24px",
-          height: "64px",
+          height: 64,
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
@@ -64,32 +83,35 @@ const Header = () => {
         {/* Logo */}
         <button
           onClick={() => scrollTo("Home")}
+          aria-label="Back to top"
           style={{
             background: "none",
             border: "none",
             cursor: "pointer",
             display: "flex",
             alignItems: "center",
-            gap: "10px",
+            gap: 10,
           }}
         >
           <div
             style={{
-              width: "36px",
-              height: "36px",
-              borderRadius: "8px",
+              width: 38,
+              height: 38,
+              borderRadius: 10,
               background: "var(--accent)",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              boxShadow: "0 0 0 4px var(--accent-dim)",
             }}
           >
             <span
               style={{
-                color: "#fff",
+                fontFamily: "var(--font-display)",
                 fontWeight: 900,
-                fontSize: "16px",
-                // letterSpacing: "-1px",
+                color: "#fff",
+                fontSize: 15,
+                // fontStyle: "italic",
               }}
             >
               SB
@@ -97,10 +119,11 @@ const Header = () => {
           </div>
           {/* <span
             style={{
+              fontFamily: "var(--font-display)",
               fontWeight: 700,
-              fontSize: "15px",
+              fontSize: 15,
               color: "var(--fg)",
-              letterSpacing: "0.2px",
+              letterSpacing: -0.3,
             }}
           >
             Sendrayaperumal
@@ -109,82 +132,50 @@ const Header = () => {
 
         {/* Desktop nav */}
         <nav
-          style={{ display: "flex", alignItems: "center", gap: "6px" }}
-          className="hidden-mobile"
+          aria-label="Main navigation"
+          className="hide-mobile"
+          style={{ alignItems: "center", gap: 2 }}
         >
-          {NAV_LINKS.map((link) => (
+          {NAV.map((id) => (
             <button
-              key={link}
-              onClick={() => scrollTo(link)}
+              key={id}
+              onClick={() => scrollTo(id)}
+              aria-current={active === id ? "page" : undefined}
               style={{
-                background: "none",
+                background: active === id ? "var(--accent-dim)" : "none",
                 border: "none",
                 cursor: "pointer",
-                padding: "6px 12px",
-                borderRadius: "6px",
-                fontSize: "14px",
-                fontWeight: 700,
-                color:
-                  activeSection === link ? "var(--accent)" : "var(--fg-muted)",
-                transition: "color 0.2s",
-                fontFamily: "'Lato', sans-serif",
-              }}
-              onMouseOver={(e) => {
-                (e.target as HTMLElement).style.color = "var(--accent)";
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.color = activeSection === link ? "var(--accent)" : "var(--fg-muted)";
+                padding: "6px 14px",
+                borderRadius: 7,
+                fontSize: 13.5,
+                fontWeight: active === id ? 700 : 500,
+                color: active === id ? "var(--accent)" : "var(--fg-muted)",
+                fontFamily: "var(--font-body)",
+                transition: "all 0.2s",
+                letterSpacing: 0.1,
               }}
             >
-              {link}
+              {id}
             </button>
           ))}
-          <button
-            onClick={toggle}
-            style={{
-              marginLeft: "8px",
-              background: "var(--bg-subtle)",
-              border: "1px solid var(--border)",
-              borderRadius: "8px",
-              cursor: "pointer",
-              padding: "6px 10px",
-              fontSize: "16px",
-              color: "var(--fg)",
-              transition: "background 0.2s",
-            }}
-          >
-            {dark ? "☀️" : "🌙"}
-          </button>
+          <ThemeToggle dark={dark} toggle={toggle} />
         </nav>
 
-        {/* Mobile controls */}
-        <div
-          style={{ display: "flex", alignItems: "center", gap: "8px" }}
-          className="mobile-only"
-        >
+        {/* Mobile */}
+        <div className="show-mobile" style={{ gap: 8, display: "none" }}>
+          <ThemeToggle dark={dark} toggle={toggle} />
           <button
-            onClick={toggle}
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
             style={{
               background: "var(--bg-subtle)",
               border: "1px solid var(--border)",
-              borderRadius: "8px",
+              borderRadius: 8,
               cursor: "pointer",
-              padding: "6px 10px",
-              fontSize: "16px",
-            }}
-          >
-            {dark ? "☀️" : "🌙"}
-          </button>
-          <button
-            onClick={() => setMenuOpen((o) => !o)}
-            style={{
-              background: "none",
-              border: "1px solid var(--border)",
-              borderRadius: "8px",
-              cursor: "pointer",
-              padding: "6px 10px",
+              padding: "6px 12px",
               color: "var(--fg)",
-              fontSize: "18px",
+              fontSize: 18,
             }}
           >
             {menuOpen ? "✕" : "☰"}
@@ -192,20 +183,22 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile dropdown */}
       {menuOpen && (
-        <div
+        <nav
+          aria-label="Mobile navigation"
           style={{
             background: "var(--nav-bg)",
-            backdropFilter: "blur(12px)",
-            borderTop: "1px solid var(--border)",
-            padding: "12px 24px 16px",
+            backdropFilter: "blur(16px)",
+            borderTop: "1px solid var(--border-subtle)",
+            padding: "8px 24px 16px",
           }}
         >
-          {NAV_LINKS.map((link) => (
+          {NAV.map((id) => (
             <button
-              key={link}
-              onClick={() => scrollTo(link)}
+              key={id}
+              onClick={() => scrollTo(id)}
+              aria-current={active === id ? "page" : undefined}
               style={{
                 display: "block",
                 width: "100%",
@@ -213,17 +206,18 @@ const Header = () => {
                 background: "none",
                 border: "none",
                 cursor: "pointer",
-                padding: "10px 0",
-                fontSize: "15px",
-                fontWeight: 700,
-                color: activeSection === link ? "var(--accent)" : "var(--fg)",
-                fontFamily: "'Lato', sans-serif",
+                padding: "11px 0",
+                fontSize: 15,
+                fontWeight: active === id ? 700 : 500,
+                color: active === id ? "var(--accent)" : "var(--fg)",
+                fontFamily: "var(--font-body)",
+                borderBottom: "1px solid var(--border-subtle)",
               }}
             >
-              {link}
+              {id}
             </button>
           ))}
-        </div>
+        </nav>
       )}
     </header>
   );
