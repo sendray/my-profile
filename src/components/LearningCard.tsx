@@ -88,8 +88,11 @@ const LearningCard = ({
           >
             {course.title}
           </h3>
-          <div style={{ fontSize: 12, color: "var(--fg-muted)" }}>
-            by {course.by}
+          <div style={{ fontSize: 12 }}>
+            <span style={{ color: "var(--fg-muted)" }}>Course:</span>{" "}
+            <span style={{ color: "var(--accent)" }}>{course.name}</span>{" "}
+            <span style={{ color: "var(--fg-muted)", fontSize: "10px" }}>by</span>{" "}
+            <span style={{ color: "var(--accent)" }}>{course.by}</span>
           </div>
         </div>
         {/* SVG ring */}

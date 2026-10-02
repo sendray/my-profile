@@ -185,7 +185,8 @@ export const EXPERIENCE = [
 
 export const LEARNING = [
   {
-    title: "Namaste AI",
+    title: "Artificial Intelligence",
+    name: "Namaste AI",
     by: "Akshay Saini",
     status: "progress" as const,
     progress: 28,
@@ -200,15 +201,17 @@ export const LEARNING = [
     ],
   },
   {
-    title: "Namaste React",
+    title: "React",
+    name: "Namaste React",
     by: "Akshay Saini",
     status: "progress" as const,
-    progress: 68,
+    progress: 69,
     desc: "Understading why React is the way it is, and how to use it effectively for building scalable applications.",
     tags: ["React", "Hooks", "Redux", "Performance", "Lazy Loading"],
   },
   {
-    title: "Namaste JavaScript",
+    title: "JavaScript",
+    name: "Namaste JavaScript",
     by: "Akshay Saini",
     status: "completed" as const,
     progress: 100,
