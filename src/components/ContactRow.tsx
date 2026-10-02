@@ -1,30 +1,10 @@
-import { useRef, useEffect } from "react";
+import useReveal from "./utils/hooks/useReveal";
 
 const ContactList = ({
   group,
 }: {
   group: { label: string; logoUrl: string; href: string };
 }) => {
-  function useReveal(cls = "reveal") {
-    const ref = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-      const el = ref.current;
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        ([e]) => {
-          if (e.isIntersecting) {
-            el.classList.add("visible");
-            obs.disconnect();
-          }
-        },
-        { threshold: 0.1 },
-      );
-      obs.observe(el);
-      return () => obs.disconnect();
-    }, [cls]);
-    return ref;
-  }
-
   const ref = useReveal();
   return (
     <a href={group.href} target="_blank">

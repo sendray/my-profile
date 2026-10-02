@@ -1,61 +1,8 @@
-import { useRef, useEffect } from "react";
+import Chip from "./core/Chip";
 import Eyebrow from "./core/Eyebrow";
+import RevealBlock from "./core/RevealBlock";
 
 const Education = () => {
-  function Chip({ children }: { children: React.ReactNode }) {
-    return (
-      <span
-        style={{
-          padding: "5px 12px",
-          borderRadius: 6,
-          border: "1px solid var(--border)",
-          background: "var(--bg-subtle)",
-          fontSize: 13,
-          color: "var(--fg-muted)",
-          fontWeight: 500,
-          fontFamily: "var(--font-mono)",
-        }}
-      >
-        {children}
-      </span>
-    );
-  }
-
-  function useReveal(cls = "reveal") {
-    const ref = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-      const el = ref.current;
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        ([e]) => {
-          if (e.isIntersecting) {
-            el.classList.add("visible");
-            obs.disconnect();
-          }
-        },
-        { threshold: 0.1 },
-      );
-      obs.observe(el);
-      return () => obs.disconnect();
-    }, [cls]);
-    return ref;
-  }
-
-  function RevealBlock({
-    children,
-    cls = "reveal",
-  }: {
-    children: React.ReactNode;
-    cls?: string;
-  }) {
-    const ref = useReveal(cls);
-    return (
-      <div ref={ref} className={cls}>
-        {children}
-      </div>
-    );
-  }
-
   return (
     <section
       id="Education"

@@ -1,43 +1,7 @@
-import { useEffect, useRef } from "react";
-
 import Eyebrow from "./core/Eyebrow";
+import RevealBlock from "./core/RevealBlock";
 
 const About = () => {
-  function useReveal(cls = "reveal") {
-    const ref = useRef<HTMLDivElement>(null);
-    useEffect(() => {
-      const el = ref.current;
-      if (!el) return;
-      const obs = new IntersectionObserver(
-        ([e]) => {
-          if (e.isIntersecting) {
-            el.classList.add("visible");
-            obs.disconnect();
-          }
-        },
-        { threshold: 0.1 },
-      );
-      obs.observe(el);
-      return () => obs.disconnect();
-    }, [cls]);
-    return ref;
-  }
-
-  function RevealBlock({
-    children,
-    cls = "reveal",
-  }: {
-    children: React.ReactNode;
-    cls?: string;
-  }) {
-    const ref = useReveal(cls);
-    return (
-      <div ref={ref} className={cls}>
-        {children}
-      </div>
-    );
-  }
-
   return (
     <section id="About" aria-label="About me" style={{ padding: "96px 24px" }}>
       <div
