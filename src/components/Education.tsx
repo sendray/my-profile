@@ -25,17 +25,7 @@ const Education = () => {
           </h2>
         </RevealBlock>
         <RevealBlock>
-          <div
-            className="glass"
-            style={{
-              borderRadius: 16,
-              padding: "36px 40px",
-              display: "flex",
-              gap: 32,
-              alignItems: "center",
-              flexWrap: "wrap",
-            }}
-          >
+          <div className="glass flex gap-8 align-center flex-wrap py-10 px-6 md:justify-center">
             <div
               style={{
                 width: 64,
