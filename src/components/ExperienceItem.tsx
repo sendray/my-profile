@@ -19,12 +19,12 @@ const ExperienceItem = ({
       <div
         style={{
           position: "absolute",
-          left: -32,
+          left: -30,
           top: 18,
-          width: 16,
-          height: 16,
+          width: 13,
+          height: 13,
           borderRadius: "50%",
-          background: job.accent ? "var(--accent)" : "var(--bg-subtle)",
+          background: job.accent ? "var(--accent)" : "var(--accent)",
           border: `2px solid ${job.accent ? "var(--accent)" : "var(--border)"}`,
           zIndex: 1,
         }}

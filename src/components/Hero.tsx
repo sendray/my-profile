@@ -102,7 +102,7 @@ const Hero = () => {
             View experience
           </Button> */}
           <a
-            href="/resume.pdf"
+            href="/my-profile/resume.pdf"
             download="Sendrayaperumal_Resume.pdf"
             style={{
               display: "inline-flex",

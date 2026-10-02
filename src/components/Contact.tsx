@@ -11,13 +11,7 @@ const Contact = () => {
       style={{ padding: "96px 24px", background: "var(--bg-subtle)" }}
     >
       <div style={{ maxWidth: 1140, margin: "0 auto" }}>
-        <div
-          style={
-            {
-              maxWidth: "50%"
-            }
-          }
-        >
+        <div className="md:w-1/2">
           <RevealBlock cls="reveal-left">
             <Eyebrow>Contact</Eyebrow>
             <h2
@@ -57,96 +51,44 @@ const Contact = () => {
                 marginTop: "24px",
               }}
             >
-              {/* <ContactList contactLogoUrl="asadsa" /> */}
               {CONTACT_ITEMS.map((group) => (
                 /* ─── Skill card ─── */
                 <ContactList key={group.label} group={group} />
               ))}
             </div>
           </RevealBlock>
-
-          {/* <RevealBlock>
-            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-              {[
-                {
-                  label: "Email",
-                  value: "bsendrayaperumal@gmail.com",
-                  href: "mailto:bsendrayaperumal@gmail.com",
-                },
-                {
-                  label: "Phone",
-                  value: "+91 90723 09455",
-                  href: "tel:+919072309455",
-                },
-                {
-                  label: "LinkedIn",
-                  value: "linkedin.com/in/sendrayaperumal",
-                  href: "https://linkedin.com/in/sendrayaperumal",
-                },
-                { label: "Location", value: "India", href: undefined },
-              ].map(({ label, value, href }, i) => (
-                <ContactRow
-                  key={i}
-                  label={label}
-                  value={value}
-                  href={href}
-                  last={i === 3}
-                />
-              ))}
-            </div>
-            <div style={{ marginTop: 32 }}>
-              <a
-                href="/resume.pdf"
-                download="Sendrayaperumal_Balathandayutham_Resume.pdf"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 10,
-                  padding: "14px 28px",
-                  borderRadius: 10,
-                  background: "var(--accent)",
-                  color: "#fff",
-                  fontSize: 15,
-                  fontWeight: 700,
-                  fontFamily: "var(--font-body)",
-                  textDecoration: "none",
-                  transition: "all 0.2s",
-                  boxShadow: "0 4px 20px var(--accent-dim)",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform =
-                    "translateY(-2px)";
-                  (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 8px 28px var(--accent-dim)";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = "none";
-                  (e.currentTarget as HTMLElement).style.boxShadow =
-                    "0 4px 20px var(--accent-dim)";
-                }}
-              >
-                <svg
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden
-                >
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-                Download Resume
-              </a>
-            </div>
-          </RevealBlock> */}
         </div>
       </div>
     </section>
+    // <section
+    //   id="Contact"
+    //   aria-label="Contact"
+    //   className="bg-(--bg-subtle) px-24 py-6"
+    // >
+    //   {/* <div className="max-w-1140"> */}
+    //   <div className="max-w-1140 md:w-1/2">
+    //     <RevealBlock cls="reveal-left">
+    //       <Eyebrow>Contact</Eyebrow>
+    //       <h2 className="mb-4 text-[clamp(28px,4vw,44px)] leading-[1.15] font-bold tracking-[-1px] text-(--fg) [font-family:var(--font-display)]">
+    //         Let's build something{" "}
+    //         <span className="text-(--accent) italic">remarkable</span>
+    //       </h2>
+    //       <p className="text-base leading-[1.8] font-light text-(--fg-muted) [&_strong]:font-normal [&_strong]:text-(--accent)">
+    //         I'm open to discussing new opportunities, design system challenges,
+    //         and frontend architecture. Reach out through any of the channels
+    //         below.
+    //       </p>
+    //     </RevealBlock>
+    //     <RevealBlock>
+    //       <div className="mt-6 flex">
+    //         {CONTACT_ITEMS.map((group) => (
+    //           <ContactList key={group.label} group={group} />
+    //         ))}
+    //       </div>
+    //     </RevealBlock>
+    //   </div>
+    //   {/* </div> */}
+    // </section>
   );
 };
 
