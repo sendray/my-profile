@@ -192,7 +192,6 @@ export const LEARNING = [
     progress: 28,
     desc: "Understading the fundamentals of AI and how to leverage it for building AI-driven applications.",
     tags: [
-      "Artificial Intelligence",
       "LLMs",
       "RAG",
       "Gen AI",
@@ -207,7 +206,14 @@ export const LEARNING = [
     status: "progress" as const,
     progress: 69,
     desc: "Understading why React is the way it is, and how to use it effectively for building scalable applications.",
-    tags: ["React", "Hooks", "Redux", "Performance", "Lazy Loading"],
+    tags: [
+      "Hooks",
+      "Redux Toolkit",
+      "Zustand",
+      "Context API",
+      "Performance",
+      "Lazy Loading",
+    ],
   },
   {
     title: "JavaScript",
@@ -222,6 +228,7 @@ export const LEARNING = [
       "Hoisting",
       "Promises",
       "Async/Await",
+      "ES6",
       "Functional Programming",
     ],
   },
